@@ -1,0 +1,71 @@
+h1{
+  color: bisque !important;
+}
+
+
+.menu-item{
+    color: bisque;
+    font-family: "Prompt", sans-serif;
+    font-size: 26px;
+    font-weight: 700;
+}
+
+/* Position and sizing of burger button */
+.bm-burger-button {
+  position: absolute;
+  width: 36px;
+  height: 30px;
+  right: 36px;
+  top: 36px;
+}
+
+/* Color/shape of burger icon bars */
+.bm-burger-bars {
+  background: black;
+}
+
+/* Position and sizing of clickable cross button */
+.bm-cross-button {
+  height: 24px;
+  width: 24px;
+}
+
+/* Color/shape of close button cross */
+.bm-cross {
+  background: #bdc3c7;
+}
+
+/* General sidebar styles */
+.bm-menu {
+  position: relative;
+  z-index: 2;
+  background: #373a47;
+  padding: 2.5em 1.5em 0;
+  font-size: 1.15em;
+  overflow: hidden !important;
+}
+
+/* Morph shape necessary with bubble or elastic */
+.bm-morph-shape {
+  fill: #373a47;
+}
+
+/* Wrapper for item list */
+.bm-item-list {
+  top: 10px;
+  color: bisque;
+  padding: 0.8em;
+  font-weight: 700;
+  font-size: 24px;
+  text-decoration: none;
+  text-align: left;
+}
+.bm-item-list:hover{
+  color: goldenrod;
+}
+
+
+/* Styling of overlay */
+.bm-overlay {
+  background: rgba(0, 0, 0, 0.3);
+}

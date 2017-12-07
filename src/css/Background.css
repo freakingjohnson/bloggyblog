@@ -1,0 +1,22 @@
+.background-video{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    position: fixed;
+    top: 0;
+    padding: none;
+    z-index: -1;
+}
+
+.layer{
+    z-index: 0;
+    background-color: darkblue;
+    /* background-image: linear-gradient(to bottom, darkgreen, darkblue); */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.65;    
+
+}

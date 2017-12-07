@@ -1,0 +1,19 @@
+.appName{
+    font-family: 'Pacifico', cursive;
+    position: relative;
+    font-size: 56px;
+    margin: auto;
+    width: auto;
+    padding: 10px;
+    text-align: center;
+}
+@media only screen and (max-width: 768px){
+.appName{
+    font-size: 32px;
+}
+}
+@media only screen and (max-width: 480px){
+    .appName{
+        font-size: 20px;
+    }
+}
