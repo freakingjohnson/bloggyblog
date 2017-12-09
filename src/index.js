@@ -7,7 +7,8 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import { indigo500, indigo700, redA200 } from 'material-ui/styles/colors';
 import { Provider } from 'react-redux'
 import store from './store'
-
+import Background from './components/Background'
+import Sidebar from './components/Sidebar'
 
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 
@@ -24,6 +25,8 @@ const muiTheme = getMuiTheme({
 ReactDOM.render(
     <Provider store={store}>
         <MuiThemeProvider muiTheme={muiTheme}>
+        <Sidebar/>
+        <Background/>
             <HashRouter>
                 {router}
             </HashRouter>

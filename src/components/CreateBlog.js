@@ -1,13 +1,28 @@
 import React, { Component } from 'react'
-import Sidebar from './Sidebar'
 import TextEditor from './TextEditor'
+import TextField from 'material-ui/TextField'
+import Paper from 'material-ui/Paper'
+import RaisedButton from 'material-ui/RaisedButton'
 import { connect } from 'react-redux'
-import {getUser} from '../ducks/reducer'
-
-
+import { getUser } from '../ducks/reducer'
 import '../css/CreateBlog.css'
-class CreateBlog extends Component {
 
+
+
+class CreateBlog extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            value: '',
+        }
+        this.handleChange = this.handleChange.bind(this)
+    }
+    handleChange = (event) => {
+        this.setState({
+            value: event.target.value,
+
+        })
+    }
     componentDidMount() {
         this.props.getUser()
     }
@@ -15,13 +30,25 @@ class CreateBlog extends Component {
     render() {
         const loginJSX = (
             this.props.user ?
-                <div className="background">
-                    <Sidebar />
-                    <header className="header">Write New Post</header>
-                    <a className="logoutButton" href="/auth/logout"><i className="fa fa-lock fa-fw" aria-hidden="true">
-                    </i>Logout</a>
-                    <div className="editor">
-                        <TextEditor />
+                <div>
+                    <div/>
+                    <RaisedButton
+                        className="logoutButton"
+                        label="Logout"
+                        href="/auth/logout"
+                        icon={<i className="fa fa-lock fa-fw" aria-hidden="true" />}
+                    />
+                    <div className="main">
+                        <Paper className="editor" zDepth={5}>
+                            <div className='title'>
+                                <TextField
+                                    hintText="Enter Post Title Here"
+                                    floatingLabelText="Post Title"
+                                    value={this.state.value}
+                                    onChange={this.handleChange} />
+                            </div>
+                            <TextEditor />
+                        </Paper>
                     </div>
                 </div>
                 :

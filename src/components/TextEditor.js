@@ -1,15 +1,14 @@
 import React, { Component } from 'react'
 import ReactQuill from 'react-quill'
+import RaisedButton from 'material-ui/RaisedButton'
 import 'react-quill/dist/quill.snow.css'
 
-// let createReactClass = require('create-react-class')
 
 class TextEditor extends Component {
     constructor(props) {
         super(props)
         this.state = {
             text: '',
-            title: '',
             modules: {
                 toolbar: [
                     [{ 'header': [1, 2, false] }],
@@ -37,22 +36,20 @@ class TextEditor extends Component {
     render() {
         return (
             <div>
-                <form>
-                    Post Title:
-                    <input type='text'
-                        name="title"
-                        value={this.state.title} />
-                </form>
-
                 <ReactQuill value={this.state.text}
                     modules={this.state.modules}
                     formats={this.state.formats}
                     placeholder="start typing..."
                     onChange={this.handleChange}>
                 </ReactQuill>
+                <RaisedButton
+                        label="Save and Post"
+                        primary={true}
+                        icon={<i className="far fa-edit fa-fw" />}
+                    />
             </div >
         )
-   }       
+    }
 }
 
 export default TextEditor

@@ -1,4 +1,7 @@
 .appName{
+    background-color: white;
+    opacity: 0.5;
+    color: black;
     font-family: 'Pacifico', cursive;
     position: relative;
     font-size: 56px;
@@ -7,7 +10,18 @@
     padding: 10px;
     text-align: center;
 }
-@media only screen and (max-width: 768px){
+
+.container{
+    width: 75%;
+    position: relative;
+    /* display: flex;
+    flex-direction: column; */
+    z-index: 1;
+    /* align-items: center; */
+    margin: auto;
+    top: 5vh;
+}
+/* @media only screen and (max-width: 768px){
 .appName{
     font-size: 32px;
 }
@@ -16,4 +30,4 @@
     .appName{
         font-size: 20px;
     }
-}
+} */
