@@ -30,7 +30,7 @@ ReactDOM.render(
             <HashRouter>
                 {router}
             </HashRouter>
-        </MuiThemeProvider>
-    </Provider>
+         </MuiThemeProvider>
+   </Provider>
     , document.getElementById('root'));
 

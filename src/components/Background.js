@@ -32,7 +32,7 @@ class Background extends Component {
         super()
         this.state = {
             videoPlaying: true,
-            icon: <i class="fa fa-play" aria-hidden="true"></i>
+            icon: <i className="fa fa-play" aria-hidden="true"></i>
         }
         this.handleToggle = this.handleToggle.bind(this)
         this.handleIcon = this.handleIcon.bind(this)
@@ -44,11 +44,11 @@ class Background extends Component {
         // })
         if (this.state.videoPlaying === true){
             this.setState({
-                icon: <i class="fa fa-pause" aria-hidden="true"></i>
+                icon: <i className="fa fa-pause" aria-hidden="true"></i>
             })
         }else{
             this.setState({
-                icon: <i class="fa fa-play" aria-hidden="true"></i>
+                icon: <i className="fa fa-play" aria-hidden="true"></i>
             })
         }
     }

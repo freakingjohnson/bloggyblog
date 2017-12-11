@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import TextEditor from './TextEditor'
-import TextField from 'material-ui/TextField'
 import Paper from 'material-ui/Paper'
 import RaisedButton from 'material-ui/RaisedButton'
 import { connect } from 'react-redux'
@@ -10,50 +9,33 @@ import '../css/CreateBlog.css'
 
 
 class CreateBlog extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            value: '',
-        }
-        this.handleChange = this.handleChange.bind(this)
-    }
-    handleChange = (event) => {
-        this.setState({
-            value: event.target.value,
 
-        })
-    }
-    componentDidMount() {
+    componentWillMount() {
         this.props.getUser()
     }
 
     render() {
+        console.log(this.props)
         const loginJSX = (
-            this.props.user ?
+            this.props.user.displayName ?
                 <div>
-                    <div/>
+                    <div />
                     <RaisedButton
                         className="logoutButton"
                         label="Logout"
-                        href="/auth/logout"
+                        href="http://localhost:3005/auth/logout"
                         icon={<i className="fa fa-lock fa-fw" aria-hidden="true" />}
                     />
                     <div className="main">
                         <Paper className="editor" zDepth={5}>
-                            <div className='title'>
-                                <TextField
-                                    hintText="Enter Post Title Here"
-                                    floatingLabelText="Post Title"
-                                    value={this.state.value}
-                                    onChange={this.handleChange} />
-                            </div>
+                            
                             <TextEditor />
                         </Paper>
                     </div>
                 </div>
                 :
                 <div>
-                    <h1>not authorized</h1>
+                    <h1>NOT AUTHORIZED</h1>
                 </div>
         )
         return (
@@ -61,7 +43,9 @@ class CreateBlog extends Component {
                 {loginJSX}
             </div>
         );
+
     }
+
 }
 
 function mapStateToProps(state) {
