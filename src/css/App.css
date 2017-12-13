@@ -1,11 +1,22 @@
+img{
+    max-width: 100%;
+    object-fit: cover;
+    
+}
+
+.disqus{
+    background-color: bisque;
+}
 .appName{
+    top: 30px;
     background-color: white;
     opacity: 0.5;
     color: black;
     font-family: 'Pacifico', cursive;
-    position: relative;
+    position: inherit;
     font-size: 56px;
     margin: auto;
+    margin-bottom: 40px;
     width: auto;
     padding: 10px;
     text-align: center;

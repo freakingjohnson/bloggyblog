@@ -10,7 +10,8 @@ const express = require('express')
 
 const app = express()
 app.use(cors())
-app.use(bodyParser.json())
+app.use(bodyParser.json({limit: '500mb'}))
+app.use(bodyParser.urlencoded({limit: '500mb', extended: true}))
 
 massive(process.env.DB_CONNECTION).then(db => {
     app.set
@@ -39,7 +40,9 @@ passport.use(new Auth0Strategy({
 }))
 
 app.post('/postblog', controller.create)
-
+app.post('/postimage', controller.postImage)
+app.get('/getblogpost', controller.getBlogPost)
+app.get('/getimage', controller.getImage)
 app.get('/login', passport.authenticate('auth0'))
 app.get('/auth/callback', passport.authenticate('auth0', {
     successRedirect: 'http://localhost:3000/#/auth/admin',

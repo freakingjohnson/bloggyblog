@@ -1,0 +1,16 @@
+.imageContainer{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.imageItem{
+    /* max-width: 400px; */
+    /* max-height: 200px; */
+    margin: auto;
+    
+    overflow: hidden;
+}

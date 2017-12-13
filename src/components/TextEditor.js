@@ -3,7 +3,7 @@ import ReactQuill from 'react-quill'
 import RaisedButton from 'material-ui/RaisedButton'
 import TextField from 'material-ui/TextField'
 import axios from 'axios'
-import 'react-quill/dist/quill.snow.css'
+import '../css/quill.snow.css'
 
 
 class TextEditor extends Component {
@@ -57,24 +57,29 @@ class TextEditor extends Component {
             body: this.state.text,
             title: this.state.value,
             date: today
+        }).then(function (res) {
+            console.log(res)
+            alert("Blog Posted!")
+        }).catch(function (error) {
+            console.log(error)
+            alert("error! try again")
         })
-            .then(function (res) {
-                console.log(res)
-            })
-            .catch(function (error) {
-                console.log(error)
-            })
+        this.setState({
+            text: '',
+            value: ''
+        })
     }
     render() {
         return (
             <div>
-                <div className='title'>
-                    <TextField
-                        hintText="Enter Post Title Here"
-                        floatingLabelText="Post Title"
-                        value={this.state.value}
-                        onChange={this.handleTitleChange} />
-                </div>
+
+                <TextField
+                    primary="true"
+                    hintText="Enter Post Title Here"
+                    floatingLabelText="Post Title"
+                    value={this.state.value}
+                    onChange={this.handleTitleChange} />
+
                 <ReactQuill value={this.state.text}
                     modules={this.state.modules}
                     formats={this.state.formats}
@@ -83,7 +88,7 @@ class TextEditor extends Component {
                 </ReactQuill>
                 <RaisedButton
                     onClick={this.handleBlogPost}
-                    label="Save and Post"
+                    label="Post Blog"
                     primary={true}
                     icon={<i className="far fa-edit fa-fw" />}
                 />

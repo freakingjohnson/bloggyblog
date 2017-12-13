@@ -1,11 +1,14 @@
 .editor {
-    background-color: bisque !important;
     position: relative;
-    flex-grow: 3;
-    top: 40px;
     height: auto;
-    width: 80%;
     margin: auto;
+}
+
+.uploader {
+    position: relative;
+    height: auto;
+    margin: auto;
+    flex-wrap: wrap;
 }
 
 .main{
@@ -26,6 +29,7 @@
 }
 .logoutButton{
     position: absolute;
+    top: 80px;
     right: 3px;
     text-decoration: none;
     text-align: left;

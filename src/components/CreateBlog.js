@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import TextEditor from './TextEditor'
+import ImageUpload from './ImageUpload'
 import Paper from 'material-ui/Paper'
 import RaisedButton from 'material-ui/RaisedButton'
 import { connect } from 'react-redux'
@@ -19,23 +20,29 @@ class CreateBlog extends Component {
         const loginJSX = (
             this.props.user.displayName ?
                 <div>
-                    <div />
                     <RaisedButton
                         className="logoutButton"
                         label="Logout"
+                        secondary={true}
                         href="http://localhost:3005/auth/logout"
                         icon={<i className="fa fa-lock fa-fw" aria-hidden="true" />}
                     />
-                    <div className="main">
+
+                    <div className="container">
+                        <h1 className="appName">Admin</h1>
                         <Paper className="editor" zDepth={5}>
-                            
                             <TextEditor />
                         </Paper>
+                        <br/>
+                        <Paper className="uploader" zDepth={5}>
+                            <ImageUpload/>
+                        </Paper>
                     </div>
+
                 </div>
                 :
-                <div>
-                    <h1>NOT AUTHORIZED</h1>
+                <div className='container'>
+                    <h1 className='appName'>NOT AUTHORIZED GET OUT!</h1>
                 </div>
         )
         return (
