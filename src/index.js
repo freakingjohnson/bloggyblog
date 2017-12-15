@@ -16,14 +16,14 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 
 ReactDOM.render(
     <Provider store={store}>
-        <MuiThemeProvider muiTheme={getMuiTheme(theme)}>
-            <div>
-                <Sidebar />
+        <div>
+            <Sidebar />
+            <MuiThemeProvider muiTheme={getMuiTheme(theme)}>
                 <HashRouter>
                     {router}
                 </HashRouter>
-            </div>
-        </MuiThemeProvider>
+            </MuiThemeProvider>
+        </div>
     </Provider>
     , document.getElementById('root'));
 

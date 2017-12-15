@@ -41,12 +41,14 @@ passport.use(new Auth0Strategy({
 
 app.post('/postblog', controller.create)
 app.post('/postimage', controller.postImage)
+app.post('/postmessage', controller.postMessage)
 app.get('/getblogpost', controller.getBlogPost)
 app.get('/getimage', controller.getImage)
+app.get('/getmessage', controller.getMessage)
 app.get('/login', passport.authenticate('auth0'))
 app.get('/auth/callback', passport.authenticate('auth0', {
-    successRedirect: 'http://localhost:3000/#/auth/admin',
-    failureRedirect: 'http://localhost:3000/#/'
+    successRedirect: process.env.AUTH_PRIVATE_REDIRECT,
+    failureRedirect: process.env.AUTH_LANDING_REDIRECT
 }))
 
 passport.serializeUser(function (user, done) {
@@ -60,7 +62,6 @@ passport.deserializeUser(function (user, done) {
 app.get('/auth/me', function (req, res, next) {
     if (!req.user) {
         console.log('if')
-        // return Promise.reject()
         res.status(401).send('login required')
     } else {
         console.log('else')
@@ -70,7 +71,7 @@ app.get('/auth/me', function (req, res, next) {
 
 app.get('/auth/logout', function (req, res) {
     req.logout()
-    res.redirect('http://localhost:3000/#/')
+    res.redirect(process.env.AUTH_LANDING_REDIRECT)
 })
 
 app.listen(process.env.SERVER_PORT, () => { console.log('wubba lubba dub dub!') })

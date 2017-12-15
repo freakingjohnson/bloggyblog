@@ -5,6 +5,10 @@ import SwipeableViews from 'react-swipeable-views';
 import Avatar from 'material-ui/Avatar'
 import author from '../assets/author.jpg'
 import devPhoto from '../assets/devPhoto.jpg'
+import ReactLogo from '../assets/reactlogo.png'
+import NodeLogo from '../assets/nodelogo.png'
+import ReduxLogo from '../assets/reduxlogo.png'
+import '../css/About.css'
 
 const styles = {
     headline: {
@@ -87,8 +91,10 @@ class About extends Component {
                         <div style={styles.slide}>
                         <Card>
                                 <CardTitle title="Technologies Used:" />
-                                <CardText>
-                                    React, Redux, all that jazz and some icons
+                                <CardText className='contain'>
+                                    <img src={ReactLogo} className='app-logo'/>
+                                    <img src={NodeLogo} className='App-logo'/>
+                                    <img src={ReduxLogo} className='App-logo'/>
                                 </CardText>
 
                             </Card>

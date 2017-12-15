@@ -36,63 +36,6 @@ class Home extends Component {
     return (
       <div className="container">
         <h1 className="appName">Bem-vindo</h1>
-        <Tabs
-          onChange={this.handleChange}
-          value={this.state.slideIndex}
-        >
-          <Tab label="Author" value={0} />
-          <Tab label="Developer" value={1} />
-          <Tab label="Tech" value={2} />
-        </Tabs>
-        <SwipeableViews
-          index={this.state.slideIndex}
-          onChangeIndex={this.handleChange}
-        >
-          <div style={styles.slide}>
-            <Card>
-              <CardHeader
-                title="Caroline"
-                subtitle="Johnson"
-                avatar={<Avatar src={author} size={90} />}
-              />
-              <CardTitle title="About the Author" />
-              <CardText>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                    Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi.
-                                    Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque.
-                                    Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.
-                                </CardText>
-
-            </Card>
-          </div>
-          <div style={styles.slide}>
-            <Card>
-              <CardHeader
-                title="Nathan"
-                subtitle="Johnson"
-                avatar={<Avatar src={devPhoto} size={90} />}
-              />
-              <CardTitle title="About the Developer" />
-              <CardText>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                    Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi.
-                                    Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque.
-                                    Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.
-                                </CardText>
-
-            </Card>
-
-          </div>
-          <div style={styles.slide}>
-            <Card>
-              <CardTitle title="Technologies Used:" />
-              <CardText>
-                React, Redux, all that jazz and some icons
-                                </CardText>
-
-            </Card>
-          </div>
-        </SwipeableViews>
       </div>
 
     );

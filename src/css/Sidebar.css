@@ -7,51 +7,14 @@
 
 .bar{
   position: fixed !important;
-}
-/* Position and sizing of burger button */
-.bm-burger-button {
-  position: absolute;
-  width: 36px;
-  height: 30px;
-  right: 36px;
-  top: 36px;
+  z-index: 3 !important;
 }
 
-/* Color/shape of burger icon bars */
-.bm-burger-bars {
-  background: black;
-}
-
-/* Position and sizing of clickable cross button */
-.bm-cross-button {
-  height: 24px;
-  width: 24px;
-}
-
-/* Color/shape of close button cross */
-.bm-cross {
-  background: #bdc3c7;
-}
-
-/* General sidebar styles */
-.bm-menu {
-  position: relative;
-  z-index: 2;
-  background: #373a47;
-  padding: 2.5em 1.5em 0;
-  font-size: 1.15em;
-  overflow: hidden !important;
-}
-
-/* Morph shape necessary with bubble or elastic */
-.bm-morph-shape {
-  fill: #373a47;
-}
 
 /* Wrapper for item list */
 .bm-item-list {
   top: 10px;
-  color: bisque;
+  color: darkcyan;
   padding: 0.8em;
   font-weight: 700;
   font-size: 24px;
@@ -62,19 +25,22 @@
   color: goldenrod;
 }
 
-/* Styling of overlay */
-.bm-overlay {
-  background: rgba(0, 0, 0, 0.3);
+.html5-video-player.video-stream {
+  height: 100% !important;
+  width: 100% !important;
+  object-fit: cover !important;
+  position: fixed !important;
+  top: 0 !important;
+  z-index: -2 !important;
 }
 
 .background-video{
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-  position: fixed;
-  top: 0;
-  padding: none;
-  z-index: -2;
+  height: 100% !important;
+  width: 100% !important;
+  object-fit: cover !important;
+  position: fixed !important;
+  top: 0 !important;
+  z-index: -2 !important;
 }
 
 .layer{

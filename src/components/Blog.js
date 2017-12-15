@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Card, CardTitle, CardText } from 'material-ui/Card';
 import axios from 'axios'
+import '../css/App.css'
 
 
 class Blog extends Component {
@@ -26,13 +27,12 @@ class Blog extends Component {
     }
 
     render() {
-
         const data = this.state.blogData
         console.log(data)
         let blogs = data && data.map(group => {
             return (
                 <div>
-                    <Card>
+                    <Card >
                         <CardTitle title={group.title} subtitle={group.post_date} />
                         <CardText>
                             {data ? <div dangerouslySetInnerHTML={{ __html: group.body }} /> : undefined}

@@ -4,10 +4,10 @@ require('dotenv').config()
 
 const initialState = {
     userData: {},
+
 }
 
 const GET_USER = 'GET_USER'
-
 
 export function getUser() {
     const userInfo = axios.get('/auth/me')
@@ -25,12 +25,15 @@ export function getUser() {
     }
 }
 
+
+
 export default (state = initialState, action) => {
     const { payload, type } = action
     switch (type) {
         case GET_USER + '_FULFILLED':
             // console.log('_FULFILLED')
             return Object.assign({}, state, { userData: payload.getUser === false ? null : payload })
+
         default:
             return state;
     }

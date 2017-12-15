@@ -1,10 +1,16 @@
 .editor {
+
     position: relative;
     height: auto;
     margin: auto;
 }
 
+.textfield{
+    color: black !important;
+}
+
 .uploader {
+
     position: relative;
     height: auto;
     margin: auto;
@@ -17,10 +23,6 @@
     flex-wrap: wrap;
     align-items: center;
 }
-.far{
-    color: white;
-}
-
 
 .title {
     position: relative;
@@ -31,12 +33,6 @@
     position: absolute;
     top: 80px;
     right: 3px;
-    text-decoration: none;
-    text-align: left;
-}
-.submit{
-    position: absolute;
-    left: 3px;
     text-decoration: none;
     text-align: left;
 }

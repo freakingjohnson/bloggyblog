@@ -3,8 +3,9 @@ import ReactQuill from 'react-quill'
 import RaisedButton from 'material-ui/RaisedButton'
 import TextField from 'material-ui/TextField'
 import axios from 'axios'
+import Snackbar from 'material-ui/Snackbar';
 import '../css/quill.snow.css'
-
+import '../css/CreateBlog.css'
 
 class TextEditor extends Component {
     constructor(props) {
@@ -12,6 +13,7 @@ class TextEditor extends Component {
         this.state = {
             text: '',
             value: '',
+            open: false,
             modules: {
                 toolbar: [
                     [{ 'header': [1, 2, false] }],
@@ -59,21 +61,26 @@ class TextEditor extends Component {
             date: today
         }).then(function (res) {
             console.log(res)
-            alert("Blog Posted!")
         }).catch(function (error) {
             console.log(error)
             alert("error! try again")
         })
         this.setState({
             text: '',
-            value: ''
+            value: '',
+            open: true,
         })
     }
+    handleRequestClose = () => {
+        this.setState({
+            open: false,
+        });
+    };
     render() {
         return (
             <div>
-
                 <TextField
+                    className='textfield'
                     primary="true"
                     hintText="Enter Post Title Here"
                     floatingLabelText="Post Title"
@@ -91,6 +98,12 @@ class TextEditor extends Component {
                     label="Post Blog"
                     primary={true}
                     icon={<i className="far fa-edit fa-fw" />}
+                />
+                <Snackbar
+                    open={this.state.open}
+                    message="Blog Posted!"
+                    autoHideDuration={4000}
+                    onRequestClose={this.handleRequestClose}
                 />
             </div >
         )

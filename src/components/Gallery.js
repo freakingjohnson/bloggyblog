@@ -1,25 +1,43 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import Paper from 'material-ui/Paper'
+import { GridList, GridTile } from 'material-ui/GridList';
+import Lightbox from 'react-image-lightbox'
 import '../css/Gallery.css'
 
-const style = {
-    // height: '80%',
-    width: '27%',
-    margin: 30,
-    textAlign: 'center',
-    // opacity: 0,
-    // display: 'flex',
+const styles = {
+    root: {
+        display: 'flex',
+        flexWrap: 'wrap',
+        justifyContent: 'space-around',
+    },
+    gridList: {
+        width: 'auto',
+        height: '100%',
+        overflowY: 'auto',
+    },
 };
+
 class Gallery extends Component {
     constructor() {
         super()
         this.state = {
-            imageData: undefined
+            imageData: undefined,
+            isOpen: false,
+            photoIndex: 0,
+            imageSrc: ''
         }
+
+        this.handleClick = this.handleClick.bind(this)
     }
 
 
+
+    handleClick(img) {
+        this.setState({
+            isOpen: true,
+            imageSrc: img
+        })
+    }
 
     componentDidMount() {
         axios.get('/getimage')
@@ -27,7 +45,7 @@ class Gallery extends Component {
                 this.setState({
                     imageData: res.data
                 })
-                console.log(this.state.imageData)
+                // console.log(this.state.imageData)
             })
             .catch(function (error) {
                 console.log(error)
@@ -36,24 +54,41 @@ class Gallery extends Component {
 
     render() {
         const data = this.state.imageData
-        console.log(data)
-        let images = data && data.map(group => {
+        const imageSrc = this.state.imageSrc
+        const {
+            isOpen
+        } = this.state
+        // console.log(data)
+        let tile = data && data.map(group => {
             return (
-                // <div >
-                    <Paper style={style} zDepth={5}>
-                        {data ? <div className="imageItem" dangerouslySetInnerHTML={{ __html: group.img }} /> : undefined}
-                    </Paper>
-                // </div>
+                <GridTile
+                    key={group.id}
+                    title={group.image_id}
+                >
+                    {data ? <img onClick={_ => this.handleClick(group.img)} className="imageItem" src={group.img} alt={group.image_id}/> : undefined}
+                </GridTile>
             )
         })
         return (
-            <div className="container">
+            <div className="container" >
                 <h1 className="appName">Galeria de Fotos</h1>
-                <div className="imageContainer">
-                    {images}
+                <div style={styles.root}>
+                    <GridList
+                        cellHeight={180}
+                        cols={3}
+                        style={styles.gridList}
+                    >
+                        {tile}
+                    </GridList>
                 </div>
-            </div>
+                {isOpen &&
+                    <Lightbox
+                        mainSrc={imageSrc}
+                        onCloseRequest={() => this.setState({ isOpen: false })}
+                    />
+                }
 
+            </div>
         );
     }
 }

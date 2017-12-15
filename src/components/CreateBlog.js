@@ -7,8 +7,6 @@ import { connect } from 'react-redux'
 import { getUser } from '../ducks/reducer'
 import '../css/CreateBlog.css'
 
-
-
 class CreateBlog extends Component {
 
     componentWillMount() {
