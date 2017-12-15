@@ -92,9 +92,9 @@ class About extends Component {
                         <Card>
                                 <CardTitle title="Technologies Used:" />
                                 <CardText className='contain'>
-                                    <img src={ReactLogo} className='app-logo'/>
-                                    <img src={NodeLogo} className='App-logo'/>
-                                    <img src={ReduxLogo} className='App-logo'/>
+                                    <img src={ReactLogo} alt='' className='app-logo'/>
+                                    <img src={NodeLogo} alt='' className='App-logo'/>
+                                    <img src={ReduxLogo} alt='' className='App-logo'/>
                                 </CardText>
 
                             </Card>

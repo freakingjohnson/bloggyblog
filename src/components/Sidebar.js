@@ -9,7 +9,7 @@ import brazilVideo from '../assets/background1.mp4';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import barTheme from './barTheme'
-import ReactPlayer from 'react-player'
+// import ReactPlayer from 'react-player'
 import "../css/Sidebar.css"
 
 
@@ -119,7 +119,7 @@ export default class Sidebar extends Component {
                         <MenuItem onClick={this.handleClose}> <a id="discussion" className="bm-item-list" href="/#/discussion"><i className="fa fa-envelope fa-fw" aria-hidden="true" /> Discussion</a> </MenuItem>
                         <MenuItem onClick={this.handleClose}> <a id="gallery" className="bm-item-list" href="/#/gallery"><i className="fa fa-picture-o fa-fw" aria-hidden="true" /> Gallery</a> </MenuItem>
                         <MenuItem onClick={this.handleClose}> <a id="about" className="bm-item-list" href="/#/about"><i className="fa fa-info-circle fa-fw" aria-hidden="true" /> About</a> </MenuItem>
-                        <MenuItem onClick={this.handleClose}> <a id="admin" className="bm-item-list" href="/login"><i className="fa fa-lock fa-fw" aria-hidden="true" /> Admin</a> </MenuItem>
+                        <MenuItem onClick={this.handleClose}> <a id="admin" className="bm-item-list" href={process.env.REACT_APP_LOGIN}><i className="fa fa-lock fa-fw" aria-hidden="true" /> Admin</a> </MenuItem>
                     </Drawer>
                     <div>
                         <div className='layer' />

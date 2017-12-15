@@ -1,24 +1,7 @@
 import React, { Component } from 'react';
 import '../css/App.css';
-import { Card, CardHeader, CardTitle, CardText, CardMedia } from 'material-ui/Card';
-import { Tabs, Tab } from 'material-ui/Tabs';
-import SwipeableViews from 'react-swipeable-views';
-import Avatar from 'material-ui/Avatar'
-import author from '../assets/author.jpg'
-import devPhoto from '../assets/devPhoto.jpg'
+import { Card, CardTitle, CardText, CardMedia } from 'material-ui/Card';
 import brasilPhoto from '../assets/picture.jpg'
-
-const styles = {
-  headline: {
-    fontSize: 24,
-    paddingTop: 16,
-    marginBottom: 12,
-    fontWeight: 400,
-  },
-  slide: {
-    padding: 10,
-  },
-};
 
 class Home extends Component {
   constructor(props) {

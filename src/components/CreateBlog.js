@@ -22,7 +22,7 @@ class CreateBlog extends Component {
                         className="logoutButton"
                         label="Logout"
                         secondary={true}
-                        href="http://localhost:3005/auth/logout"
+                        href="/auth/logout"
                         icon={<i className="fa fa-lock fa-fw" aria-hidden="true" />}
                     />
 
