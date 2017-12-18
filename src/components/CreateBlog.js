@@ -25,7 +25,7 @@ class CreateBlog extends Component {
                         label="Logout"
                         secondary={true}
                         href="/auth/logout"
-                        icon={<i className="fa fa-lock fa-fw" color="black"/>}
+                        icon={<i className="fa fa-lock fa-fw blackLock" color="black"/>}
                     />
 
                     <div className="container">
