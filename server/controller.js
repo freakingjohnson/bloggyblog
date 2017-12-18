@@ -84,4 +84,16 @@ module.exports = {
                 res.status(500).send()
             })
     },
+    deleteImage: (req, res, next) => {
+        const db = req.app.get('db')
+        const {params} = req
+        console.log(params.id + ' here')
+        db.delete_image([params.id])
+            .then(() => res.status(200).send())
+
+            .catch((error) => {
+                console.log(error)
+                res.status(500).send()
+            })
+    },
 }

@@ -47,6 +47,7 @@ app.get('/getimage', controller.getImage)
 app.get('/getmessage', controller.getMessage)
 app.put('/updateblog', controller.updateBlog)
 app.delete('/deleteblog/:id', controller.deleteBlog)
+app.delete('/deleteimage/:id', controller.deleteImage)
 
 app.get('/auth', passport.authenticate('auth0'))
 app.get('/auth/callback', passport.authenticate('auth0', {

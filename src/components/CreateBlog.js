@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import TextEditor from './TextEditor'
 import ImageUpload from './ImageUpload'
 import EditBlog from './EditBlog'
+import DeleteImage from './DeleteImage'
 import Paper from 'material-ui/Paper'
 import RaisedButton from 'material-ui/RaisedButton'
 import { connect } from 'react-redux'
@@ -30,16 +31,22 @@ class CreateBlog extends Component {
                     <div className="container">
                         <h1 className="appName">Admin</h1>
                         <Paper className="editor" zDepth={5}>
+                        <h1>Create New Post</h1>
                             <TextEditor />
                         </Paper>
                         <br/>
                         <Paper className="uploader" zDepth={5}>
+                            <h1>Upload Image to Gallery</h1>
                             <ImageUpload/>
                         </Paper>
                         <br/>
                         <Paper className="editor" zDepth={5}>
+                        <h1>Edit Existing Post</h1>
                             <EditBlog />
                         </Paper>
+                        <br/>
+                        <DeleteImage/>
+                        <br/>
                     </div>
 
                 </div>

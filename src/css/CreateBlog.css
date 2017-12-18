@@ -1,5 +1,4 @@
 .editor {
-
     position: relative;
     height: auto;
     margin: auto;
@@ -44,4 +43,12 @@
 .updateButton{
     margin-right: 20px;
     float: right;
+}
+
+.imageDeleteCard{
+    max-width: 400px;
+}
+
+.imageDeleteContainer{
+    max-width: 600px;
 }
