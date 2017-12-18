@@ -30,22 +30,19 @@ class CreateBlog extends Component {
 
                     <div className="container">
                         <h1 className="appName">Admin</h1>
-                        <Paper className="editor" zDepth={5}>
-                            <h1>Create New Post</h1>
+                        <div className="editor">
                             <TextEditor />
-                        </Paper>
+                        </div>
                         <br />
-                        <Paper className="uploader" zDepth={5}>
-                            <h1>Upload Image to Gallery</h1>
+                        <div className="uploader">
                             <ImageUpload />
-                        </Paper>
+                        </div>
                         <br />
-                        <Paper className="editor" zDepth={5}>
-                            <h1>Edit Existing Post</h1>
+                        <div className="editor">
                             <EditBlog />
-                        </Paper>
+                        </div>
                         <br />
-                        <DeleteImage />
+                            <DeleteImage />
                         <br />
                     </div>
 

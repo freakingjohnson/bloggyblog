@@ -79,20 +79,22 @@ class TextEditor extends Component {
     render() {
         return (
             <div>
-                <TextField
-                    className='textfield'
-                    primary="true"
-                    hintText="Enter Post Title Here"
-                    floatingLabelText="Post Title"
-                    value={this.state.value}
-                    onChange={this.handleTitleChange} />
-
-                <ReactQuill value={this.state.text}
-                    modules={this.state.modules}
-                    formats={this.state.formats}
-                    placeholder="start typing..."
-                    onChange={this.handleTextChange}>
-                </ReactQuill>
+                <div className="quill">
+                    <h1>Create New Post</h1>
+                    <TextField
+                        className='textfield'
+                        primary="true"
+                        hintText="Enter Post Title Here"
+                        floatingLabelText="Post Title"
+                        value={this.state.value}
+                        onChange={this.handleTitleChange} />
+                    <ReactQuill value={this.state.text}
+                        modules={this.state.modules}
+                        formats={this.state.formats}
+                        placeholder="start typing..."
+                        onChange={this.handleTextChange}>
+                    </ReactQuill>
+                </div>
                 <RaisedButton
                     onClick={this.handleBlogPost}
                     label="Post Blog"

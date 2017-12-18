@@ -90,7 +90,7 @@ class About extends Component {
                         </div>
                         <div style={styles.slide}>
                         <Card>
-                                <CardTitle title="Technologies Used:" />
+                                <CardTitle title="Techs and Frameworks Used:" />
                                 <CardText className='contain'>
                                     <img src={ReactLogo} alt='' className='app-logo'/>
                                     <img src={NodeLogo} alt='' className='App-logo'/>

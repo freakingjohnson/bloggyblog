@@ -58,18 +58,21 @@ class ImageUpload extends Component {
     render() {
         return (
             <div>
-                <TextField
-                    primary="true"
-                    hintText="Enter Image Name Here"
-                    floatingLabelText="Image Name"
-                    value={this.state.imageName}
-                    onChange={this.handleImageName} />
-                <ReactQuill value={this.state.image}
-                    modules={this.state.modules}
-                    // formats={this.state.formats}
-                    placeholder="upload an image..."
-                    onChange={this.handleImageChange}>
-                </ReactQuill>
+                <div className="quill">
+                    <h1>Upload Image to Gallery</h1>
+                    <TextField
+                        primary="true"
+                        hintText="Enter Image Name Here"
+                        floatingLabelText="Image Name"
+                        value={this.state.imageName}
+                        onChange={this.handleImageName} />
+                    <ReactQuill value={this.state.image}
+                        modules={this.state.modules}
+                        // formats={this.state.formats}
+                        placeholder="upload an image..."
+                        onChange={this.handleImageChange}>
+                    </ReactQuill>
+                </div>
                 <RaisedButton
                     onClick={this.handleImagePost}
                     label="Post Image"

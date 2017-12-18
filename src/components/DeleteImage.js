@@ -144,16 +144,19 @@ class DeleteImage extends Component {
 
     render() {
         return (
-            <div className='imageDeleteContainer'>
-                <Card className='imageDeleteCard'>
-                    <CardText>
-                        <h1>Delete Image</h1>
-                        <img src={this.state.imageData} alt=''/>
-                    </CardText>
-                </Card>
+            <div className="imageContainer">
+                <div className='imageDeleteContainer'>
+                    <h1>Delete Image</h1>
+                    <Card className='imageDeleteCard'>
+                        <CardText>
+                            <img src={this.state.imageData} alt='' />
+                        </CardText>
+                    </Card>
+                </div>
                 <RaisedButton
+                    className="prevButton"
                     onClick={this.handlePrevious}
-                    label="Previous"
+                    label="Prev"
                     secondary={true}
                     disabled={this.state.previousButton}
                     icon={<i className="fa fa-chevron-left fa-fw" />}
@@ -170,8 +173,8 @@ class DeleteImage extends Component {
                 <RaisedButton
                     className="deleteButton"
                     onClick={this.handleImageDelete}
-                    label="Delete Image"
-                    secondary={true}
+                    label="Delete"
+                    primary={false}
                     icon={<i className="fa fa-trash fa-fw" />}
                 />
                 <Snackbar

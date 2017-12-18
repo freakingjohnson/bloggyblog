@@ -11,8 +11,6 @@ class EditBlog extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            // text: '',
-            // value: '',
             open: false,
             index: 0,
             length: undefined,
@@ -64,7 +62,7 @@ class EditBlog extends Component {
                     blogData: res.data[this.state.index].body,
                     blogTitle: res.data[this.state.index].title,
                     blogDate: res.data[this.state.index].post_date,
-                    length: res.data.length,                    
+                    length: res.data.length,
                     blogId: res.data[this.state.index].id,
                 })
                 // console.log(this.state.blogData)
@@ -147,7 +145,7 @@ class EditBlog extends Component {
         })
     }
 
-    handleBlogDelete  = (event) => {
+    handleBlogDelete = (event) => {
         console.log(this.state.blogId, 'blog id')
         axios.delete('/deleteblog/' + this.state.blogId
         ).then(function (res) {
@@ -157,20 +155,20 @@ class EditBlog extends Component {
             alert("error! try again")
         })
         axios.get('/getblogpost')
-        .then((res) => {
-            this.setState({
-                blogData: res.data[this.state.index].body,
-                blogTitle: res.data[this.state.index].title,
-                length: res.data.length,
-                blogId: res.data[this.state.index].id,
+            .then((res) => {
+                this.setState({
+                    blogData: res.data[this.state.index].body,
+                    blogTitle: res.data[this.state.index].title,
+                    length: res.data.length,
+                    blogId: res.data[this.state.index].id,
+                })
+                console.log(this.state.blogData)
+                console.log(this.state.length)
+                console.log(this.state.index)
             })
-            console.log(this.state.blogData)
-            console.log(this.state.length)
-            console.log(this.state.index)
-        })
-        .catch(function (error) {
-            console.log(error)
-        })
+            .catch(function (error) {
+                console.log(error)
+            })
         this.setState({
             open: true,
         })
@@ -203,26 +201,29 @@ class EditBlog extends Component {
     render() {
         return (
             <div>
-                <TextField
-                    className='textfield'
-                    primary="true"
-                    hintText="Enter Post Title Here"
-                    floatingLabelText="Post Title"
-                    value={this.state.blogTitle}
-                    onChange={this.handleTitleChange} />
-
-                <ReactQuill value={this.state.blogData}
-                    modules={this.state.modules}
-                    formats={this.state.formats}
-                    placeholder="start typing..."
-                    onChange={this.handleTextChange}>
-                </ReactQuill>
+                <div className="quill">
+                    <h1>Edit Existing Post</h1>
+                    <TextField
+                        className='textfield'
+                        primary="true"
+                        hintText="Enter Post Title Here"
+                        floatingLabelText="Post Title"
+                        value={this.state.blogTitle}
+                        onChange={this.handleTitleChange} />
+                    <ReactQuill value={this.state.blogData}
+                        modules={this.state.modules}
+                        formats={this.state.formats}
+                        placeholder="start typing..."
+                        onChange={this.handleTextChange}>
+                    </ReactQuill>
+                </div>
                 <RaisedButton
+                    className="prevButton"
                     onClick={this.handlePrevious}
-                    label="Previous"
+                    label="Prev"
                     secondary={true}
                     disabled={this.state.previousButton}
-                    icon={<i className="fa fa-chevron-left fa-fw" />}                    
+                    icon={<i className="fa fa-chevron-left fa-fw" />}
                 />
                 <RaisedButton
                     className="nextButton"
@@ -236,15 +237,15 @@ class EditBlog extends Component {
                 <RaisedButton
                     className="updateButton"
                     onClick={this.handleBlogUpdate}
-                    label="Update Blog"
+                    label="Update"
                     primary={true}
                     icon={<i className="fa fa-wrench fa-fw" />}
                 />
                 <RaisedButton
                     className="deleteButton"
                     onClick={this.handleBlogDelete}
-                    label="Delete Post"
-                    secondary={true}
+                    label="Delete"
+                    primary={false}
                     icon={<i className="fa fa-trash fa-fw" />}
                 />
                 <Snackbar
