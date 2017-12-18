@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
-import ReactQuill from 'react-quill'
 import RaisedButton from 'material-ui/RaisedButton'
-import TextField from 'material-ui/TextField'
-import { Card, CardTitle, CardText } from 'material-ui/Card';
+import { Card, CardText } from 'material-ui/Card';
 import axios from 'axios'
 import Snackbar from 'material-ui/Snackbar';
 import '../css/quill.snow.css'
@@ -149,7 +147,7 @@ class DeleteImage extends Component {
             <div className='imageDeleteContainer'>
                 <Card className='imageDeleteCard'>
                     <CardText>
-                        <img src={this.state.imageData} />
+                        <img src={this.state.imageData} alt=''/>
                     </CardText>
                 </Card>
                 <RaisedButton
