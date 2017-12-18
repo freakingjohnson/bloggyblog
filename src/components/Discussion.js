@@ -18,6 +18,7 @@ const rootStyle = {
     display: 'flex',
     flexWrap: 'nowrap',
     justifyContent: 'space-around',
+    marginBottom: '20px'
 }
 
 class Discussion extends Component {
@@ -160,7 +161,6 @@ class Discussion extends Component {
                         floatingLabelText="Your Name"
                         value={this.state.name}
                         onChange={this.handleNameChange} />
-
                     <ReactQuill value={this.state.body}
                         modules={this.state.modules}
                         formats={this.state.formats}
@@ -173,13 +173,13 @@ class Discussion extends Component {
                         primary={true}
                         icon={<i className="far fa-paper-plane fa-fw" />}
                     />
-                    <Snackbar
-                        open={this.state.open}
-                        message="Message Sent!"
-                        autoHideDuration={4000}
-                        onRequestClose={this.handleRequestClose}
-                    />
                 </Paper>
+                <Snackbar
+                    open={this.state.open}
+                    message="Message Sent!"
+                    autoHideDuration={4000}
+                    onRequestClose={this.handleRequestClose}
+                />
             </div >
         )
     }

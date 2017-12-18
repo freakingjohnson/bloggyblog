@@ -21,7 +21,7 @@ class Home extends Component {
       <div className="container">
         <h1 className="appName">Bem-vindo</h1>
         <Card>
-          <CardTitle title="Card title" subtitle="Card subtitle" />
+          <CardTitle title="What it's all about:"/>
           <CardText>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit.
             Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi.
@@ -29,7 +29,7 @@ class Home extends Component {
             Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.
           </CardText>
           <CardMedia
-            overlay={<CardTitle title="Overlay title" subtitle="Overlay subtitle" />}
+            overlay={<CardTitle title="Check out the pictures in the Gallery!"/>}
           >
             <img src={brasilPhoto} alt="" className="landingPic" />
           </CardMedia>
