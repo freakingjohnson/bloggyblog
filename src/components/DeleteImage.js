@@ -147,6 +147,7 @@ class DeleteImage extends Component {
             <div className='imageDeleteContainer'>
                 <Card className='imageDeleteCard'>
                     <CardText>
+                        <h1>Delete Image</h1>
                         <img src={this.state.imageData} alt=''/>
                     </CardText>
                 </Card>
