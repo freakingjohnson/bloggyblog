@@ -25,28 +25,28 @@ class CreateBlog extends Component {
                         label="Logout"
                         secondary={true}
                         href="/auth/logout"
-                        icon={<i className="fa fa-lock fa-fw" aria-hidden="true" />}
+                        icon={<i className="fa fa-lock fa-fw" color="black"/>}
                     />
 
                     <div className="container">
                         <h1 className="appName">Admin</h1>
                         <Paper className="editor" zDepth={5}>
-                        <h1>Create New Post</h1>
+                            <h1>Create New Post</h1>
                             <TextEditor />
                         </Paper>
-                        <br/>
+                        <br />
                         <Paper className="uploader" zDepth={5}>
                             <h1>Upload Image to Gallery</h1>
-                            <ImageUpload/>
+                            <ImageUpload />
                         </Paper>
-                        <br/>
+                        <br />
                         <Paper className="editor" zDepth={5}>
-                        <h1>Edit Existing Post</h1>
+                            <h1>Edit Existing Post</h1>
                             <EditBlog />
                         </Paper>
-                        <br/>
-                        <DeleteImage/>
-                        <br/>
+                        <br />
+                        <DeleteImage />
+                        <br />
                     </div>
 
                 </div>
