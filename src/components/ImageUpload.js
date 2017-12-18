@@ -74,7 +74,7 @@ class ImageUpload extends Component {
                     onClick={this.handleImagePost}
                     label="Post Image"
                     primary={true}
-                    icon={<i className="far fa-edit fa-fw" />}
+                    icon={<i className="fa fa-picture-o fa-fw" />}
                 />
                 <Snackbar
                     open={this.state.open}

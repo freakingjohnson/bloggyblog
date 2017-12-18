@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import TextEditor from './TextEditor'
 import ImageUpload from './ImageUpload'
+import EditBlog from './EditBlog'
 import Paper from 'material-ui/Paper'
 import RaisedButton from 'material-ui/RaisedButton'
 import { connect } from 'react-redux'
@@ -34,6 +35,10 @@ class CreateBlog extends Component {
                         <br/>
                         <Paper className="uploader" zDepth={5}>
                             <ImageUpload/>
+                        </Paper>
+                        <br/>
+                        <Paper className="editor" zDepth={5}>
+                            <EditBlog />
                         </Paper>
                     </div>
 

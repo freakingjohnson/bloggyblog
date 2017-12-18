@@ -71,7 +71,7 @@ class Gallery extends Component {
         })
         return (
             <div className="container" >
-                <h1 className="appName">Galeria de Fotos</h1>
+                <h1 className="appName">Gallery</h1>
                 <div style={styles.root}>
                     <GridList
                         cellHeight={180}

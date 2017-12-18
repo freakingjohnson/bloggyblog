@@ -19,7 +19,7 @@ class Home extends Component {
   render() {
     return (
       <div className="container">
-        <h1 className="appName">Bem-vindo</h1>
+        <h1 className="appName">Welcome</h1>
         <Card>
           <CardTitle title="What it's all about:"/>
           <CardText>

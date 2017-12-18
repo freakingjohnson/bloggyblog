@@ -45,6 +45,9 @@ app.post('/postmessage', controller.postMessage)
 app.get('/getblogpost', controller.getBlogPost)
 app.get('/getimage', controller.getImage)
 app.get('/getmessage', controller.getMessage)
+app.put('/updateblog', controller.updateBlog)
+app.delete('/deleteblog/:id', controller.deleteBlog)
+
 app.get('/auth', passport.authenticate('auth0'))
 app.get('/auth/callback', passport.authenticate('auth0', {
     successRedirect: process.env.AUTH_PRIVATE_REDIRECT,
@@ -52,13 +55,13 @@ app.get('/auth/callback', passport.authenticate('auth0', {
 }))
 
 passport.serializeUser(function (user, done) {
-    done(null, user) //usually save user id from DB to session
+    done(null, user)
 })
 
 passport.deserializeUser(function (user, done) {
     done(null, user)
 })
-// make query call to find the user that matches req.user
+
 app.get('/auth/me', function (req, res, next) {
     if (!req.user) {
         console.log('if')

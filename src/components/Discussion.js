@@ -8,6 +8,8 @@ import { Card, CardTitle, CardText } from 'material-ui/Card';
 import { GridList } from 'material-ui/GridList'
 import Snackbar from 'material-ui/Snackbar';
 import '../css/quill.snow.css'
+const createDOMPurify = require('dompurify');
+const DOMPurify = createDOMPurify(window);
 
 const styles = {
     width: '100%',
@@ -122,18 +124,19 @@ class Discussion extends Component {
         let messages = data && data.map(group => {
             function getAuthor(author) {
                 let authorName = author
-                if (!author) {
+                if (!authorName) {
                     return 'Anonymous'
                 } else {
                     return authorName
                 }
             }
+            const clean = DOMPurify.sanitize(group.message_body)
             return (
                 <div>
                     <Card>
                         <CardTitle title={getAuthor(group.author_name)} subtitle={group.message_date} />
                         <CardText>
-                            {data ? <div dangerouslySetInnerHTML={{ __html: group.message_body }} /> : undefined}
+                            {data ? <div dangerouslySetInnerHTML={{ __html: clean }} /> : undefined}
                         </CardText>
                     </Card>
 

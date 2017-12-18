@@ -5,6 +5,9 @@ import axios from 'axios'
 import '../css/App.css'
 import '../css/Blog.css'
 
+const createDOMPurify = require('dompurify');
+const DOMPurify = createDOMPurify(window);
+
 
 class Blog extends Component {
     constructor() {
@@ -117,6 +120,8 @@ class Blog extends Component {
         const body = this.state.blogData
         const title = this.state.blogTitle
         const date = this.state.blogDate
+
+        const clean = DOMPurify.sanitize(body)
         // console.log(data)
         return (
             <div className='container'>
@@ -124,7 +129,7 @@ class Blog extends Component {
                 <Card >
                     <CardTitle title={title} subtitle={date} />
                     <CardText>
-                        {<div dangerouslySetInnerHTML={{ __html: body }} />}
+                        {<div dangerouslySetInnerHTML={{ __html: clean }} />}
                     </CardText>
                 </Card>
                 <RaisedButton
@@ -132,13 +137,16 @@ class Blog extends Component {
                     label="Previous"
                     secondary={true}
                     disabled={this.state.previousButton}
+                    icon={<i className="fa fa-chevron-left fa-fw" />}                    
                 />
                 <RaisedButton
                     className="nextButton"
                     onClick={this.handleNext}
                     label="Next"
                     primary={true}
+                    labelPosition="before"
                     disabled={this.state.nextButton}
+                    icon={<i className="fa fa-chevron-right fa-fw" />}                    
                 />
                 <br />
             </div>
