@@ -23,7 +23,7 @@ module.exports = {
     postImage: (req, res, next) => {
         const db = req.app.get('db')
         console.log(req.body)
-        db.post_image([req.body.image, req.body.title])
+        db.post_image([req.body.image, req.body.title, req.body.publicId])
             .then(() => res.status(200).send())
             .catch((error) => {
                 console.log(error)

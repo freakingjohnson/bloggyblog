@@ -3,6 +3,7 @@ import RaisedButton from 'material-ui/RaisedButton'
 import { Card, CardText } from 'material-ui/Card';
 import axios from 'axios'
 import Snackbar from 'material-ui/Snackbar';
+import cloudinary from 'cloudinary';
 import '../css/quill.snow.css'
 import '../css/CreateBlog.css'
 
@@ -17,6 +18,7 @@ class DeleteImage extends Component {
             nextButton: true,
             previousButton: false,
             imageId: undefined,
+            publicId: '',
         }
         this.handleNext = this.handleNext.bind(this)
         this.handlePrevious = this.handlePrevious.bind(this)
@@ -26,101 +28,78 @@ class DeleteImage extends Component {
         this.setState({
             index: this.state.index - 1
         })
-        axios.get('/getimage')
-            .then((res) => {
-                this.setState({
-                    imageData: res.data[this.state.index].img,
-                    length: res.data.length,
-                    imageId: res.data[this.state.index].id,
-                })
-                // console.log(this.state.blogData)
-                if (this.state.index === 0) {
-                    this.setState({
-                        nextButton: true
-                    })
-                } else {
-                    this.setState({
-                        nextButton: false
-                    })
-                }
-                if (this.state.index === this.state.length - 1) {
-                    this.setState({
-                        previousButton: true
-                    })
-                } else {
-                    this.setState({
-                        previousButton: false
-                    })
-                }
-            })
-            .catch(function (error) {
-                console.log(error)
-            })
-        console.log(this.state.index)
+        this.getImage()
     }
+
     handlePrevious() {
         this.setState({
             index: this.state.index + 1
         })
-        axios.get('/getimage')
-            .then((res) => {
-                this.setState({
-                    imageData: res.data[this.state.index].img,
-                    length: res.data.length,
-                    imageId: res.data[this.state.index].id,
-                })
-                // console.log(this.state.blogData)
-                if (this.state.index === 0) {
-                    this.setState({
-                        nextButton: true
-                    })
-                } else {
-                    this.setState({
-                        nextButton: false
-                    })
-                }
-                if (this.state.index === this.state.length - 1) {
-                    this.setState({
-                        previousButton: true
-                    })
-                } else {
-                    this.setState({
-                        previousButton: false
-                    })
-                }
-            })
-            .catch(function (error) {
-                console.log(error)
-            })
-        console.log(this.state.index)
+        this.getImage()
     }
 
     handleImageDelete = (event) => {
-        console.log(this.state.imageId, 'image id')
+        let publicId = this.state.publicId
+        console.log(this.state.publicId, 'public id')
         axios.delete('/deleteimage/' + this.state.imageId
         ).then(function (res) {
+            cloudinary.v2.uploader.destroy(publicId,
+                {
+                    api_key: process.env.REACT_APP_CLOUDINARY_API_KEY,
+                    api_secret: "k5NqZfLujUP3Wc58mnyD89rj-HQ",
+                    cloud_name: "freakingjohnson"
+                },
+                (error, result) => {
+                    if (error) {
+                        // TODO: LOG ERRORS REMOTELY;
+                        console.log(error);
+                    } else if (result) {
+                        // TODO: LOG SUCCESSFUL DELETES
+                        console.log(result);
+                    }
+                },
+            )
             console.log(res)
         }).catch(function (error) {
             console.log(error)
             alert("error! try again")
         })
+        this.getImage()
+        this.setState({
+            open: true,
+        })
+    }
+
+    getImage = () => {
         axios.get('/getimage')
             .then((res) => {
                 this.setState({
                     imageData: res.data[this.state.index].img,
                     length: res.data.length,
                     imageId: res.data[this.state.index].id,
+                    publicId: res.data[this.state.index].public_id
                 })
-                console.log(this.state.imageData)
-                console.log(this.state.length)
-                console.log(this.state.index)
+                console.log(res)
+                if (this.state.index === 0) {
+                    this.setState({
+                        nextButton: true,
+                        previousButton: false
+                    })
+                } else if (this.state.index === this.state.length - 1) {
+                    this.setState({
+                        previousButton: true
+                    })
+
+                } else {
+                    this.setState({
+                        nextButton: false,
+                        previousButton: false,
+                    })
+                }
             })
             .catch(function (error) {
                 console.log(error)
             })
-        this.setState({
-            open: true,
-        })
     }
 
     handleRequestClose = () => {
@@ -129,17 +108,8 @@ class DeleteImage extends Component {
         });
     }
 
-    componentDidMount() {
-        axios.get('/getimage')
-            .then((res) => {
-                this.setState({
-                    imageData: res.data[this.state.index].img
-                })
-                // console.log(this.state.imageData)
-            })
-            .catch(function (error) {
-                console.log(error)
-            })
+    componentDidMount = () => {
+        this.getImage()
     }
 
     render() {

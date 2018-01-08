@@ -5,6 +5,7 @@
   "dependencies": {
     "axios": "^0.17.1",
     "body-parser": "^1.18.2",
+    "cloudinary": "^1.9.1",
     "cors": "^2.8.4",
     "dompurify": "^1.0.3",
     "dotenv": "^4.0.0",
@@ -20,6 +21,7 @@
     "react-burger-menu": "^2.1.11",
     "react-disqus-comments": "^1.1.1",
     "react-dom": "^16.2.0",
+    "react-dropzone": "^4.2.3",
     "react-image-lightbox": "^4.3.0",
     "react-modal": "^3.1.8",
     "react-player": "^0.25.3",

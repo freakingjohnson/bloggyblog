@@ -54,13 +54,13 @@ class Discussion extends Component {
         this.setState({
             body: value,
         })
-        axios.get('/getmessage')
-            .then((res) => {
-                this.setState({
-                    messageData: res.data
-                })
-                console.log(this.state.messageData)
-            })
+        // axios.get('/getmessage')
+        //     .then((res) => {
+        //         this.setState({
+        //             messageData: res.data
+        //         })
+        //         console.log(this.state.messageData)
+            // })
             .catch(function (error) {
                 console.log(error)
             })
@@ -105,7 +105,7 @@ class Discussion extends Component {
         });
     };
 
-    componentWillMount() {
+    componentDidMount() {
         axios.get('/getmessage')
             .then((res) => {
                 this.setState({

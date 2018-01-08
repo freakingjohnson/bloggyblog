@@ -15,7 +15,7 @@ class EditBlog extends Component {
             index: 0,
             length: undefined,
             blogData: undefined,
-            blogTitle: undefined,
+            blogTitle: '',
             blogDate: undefined,
             nextButton: true,
             previousButton: false,
@@ -189,7 +189,7 @@ class EditBlog extends Component {
                     length: res.data.length,
                     blogId: res.data[this.state.index].id,
                 })
-                console.log(this.state.blogData)
+                // console.log(this.state.blogData)
                 console.log(this.state.length)
                 console.log(this.state.index)
             })
@@ -204,6 +204,7 @@ class EditBlog extends Component {
                 <div className="quill">
                     <h1>Edit Existing Post</h1>
                     <TextField
+                        type='text'
                         className='textfield'
                         primary="true"
                         hintText="Enter Post Title Here"
