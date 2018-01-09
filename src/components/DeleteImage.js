@@ -46,8 +46,9 @@ class DeleteImage extends Component {
             cloudinary.v2.uploader.destroy(publicId,
                 {
                     api_key: process.env.REACT_APP_CLOUDINARY_API_KEY,
-                    api_secret: "k5NqZfLujUP3Wc58mnyD89rj-HQ",
-                    cloud_name: "freakingjohnson"
+                    // api_secret: "k5NqZfLujUP3Wc58mnyD89rj-HQ",
+                    api_secret: process.env.REACT_APP_CLOUDINARY_API_SECRET,
+                    cloud_name: process.env.REACT_APP_CLOUDINARY_CLOUD_NAME
                 },
                 (error, result) => {
                     if (error) {
