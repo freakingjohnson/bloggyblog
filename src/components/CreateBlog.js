@@ -49,6 +49,7 @@ class CreateBlog extends Component {
                 :
                 <div className='container'>
                     <h1 className='appName'>NOT AUTHORIZED GET OUT!</h1>
+                    <a id="admin" className="bm-item-list" href={process.env.REACT_APP_LOGIN}><i className="fa fa-lock fa-fw" aria-hidden="true" /> Admin</a>
                 </div>
         )
         return (
