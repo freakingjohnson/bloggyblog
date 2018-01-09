@@ -88,7 +88,8 @@ class DeleteImage extends Component {
                     })
                 } else if (this.state.index === this.state.length - 1) {
                     this.setState({
-                        previousButton: true
+                        previousButton: true,
+                        nextButton: false,
                     })
 
                 } else {

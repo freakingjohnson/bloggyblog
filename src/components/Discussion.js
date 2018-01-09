@@ -54,16 +54,7 @@ class Discussion extends Component {
         this.setState({
             body: value,
         })
-        // axios.get('/getmessage')
-        //     .then((res) => {
-        //         this.setState({
-        //             messageData: res.data
-        //         })
-        //         console.log(this.state.messageData)
-            // })
-            .catch(function (error) {
-                console.log(error)
-            })
+        this.getMessage()
     }
     handleNameChange = (event) => {
         this.setState({
@@ -92,6 +83,7 @@ class Discussion extends Component {
             console.log(error)
             alert("error! try again")
         })
+        this.getMessage()
         this.setState({
             body: '',
             // name: ''
@@ -105,23 +97,28 @@ class Discussion extends Component {
         });
     };
 
-    componentDidMount() {
+    getMessage = () => {
         axios.get('/getmessage')
             .then((res) => {
                 this.setState({
                     messageData: res.data
                 })
-                console.log(this.state.messageData)
+                // console.log(this.state.messageData)
             })
             .catch(function (error) {
                 console.log(error)
             })
     }
 
+    componentDidMount() {
+        this.getMessage()
+    }
+
     render() {
         const data = this.state.messageData
-        console.log(data)
+        // console.log(data)
         let messages = data && data.map(group => {
+            // console.log(group)
             function getAuthor(author) {
                 let authorName = author
                 if (!authorName) {
@@ -132,15 +129,14 @@ class Discussion extends Component {
             }
             const clean = DOMPurify.sanitize(group.message_body)
             return (
-                <div>
+                <ul key={group.id}>
                     <Card>
                         <CardTitle title={getAuthor(group.author_name)} subtitle={group.message_date} />
                         <CardText>
                             {data ? <div dangerouslySetInnerHTML={{ __html: clean }} /> : undefined}
                         </CardText>
                     </Card>
-
-                </div>
+                </ul>
             )
         })
 
