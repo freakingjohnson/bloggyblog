@@ -11,7 +11,7 @@
 
 # misc
 .DS_Store
-.env
+.env*
 /assets/background.mp4
 
 
